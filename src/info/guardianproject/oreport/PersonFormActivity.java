@@ -38,7 +38,7 @@ public class PersonFormActivity extends Activity implements OnClickListener
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(android.R.style.Theme_Black_NoTitleBar);
+      //  setTheme(android.R.style.Theme_Black_NoTitleBar);
         setContentView(R.layout.personform); 
        
       ((Button)findViewById(R.id.btnReportFormSubmit)).setOnClickListener(this);

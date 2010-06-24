@@ -109,14 +109,16 @@ public void onPreviewFrame(byte[] data, Camera c) {
 	
 	if (!sizeSet)
 	{
-		Log.i(getClass().getSimpleName(), "preview frame RAW: " + data);
+		Log.i(getClass().getSimpleName(), "preview frame RAW: " + data.length);
 		
+		/*
 		Camera.Parameters params = c.getParameters();
 		params.setPictureFormat(PixelFormat.JPEG);
 		params.setPictureSize(PHOTO_WIDTH,PHOTO_HEIGHT);
 		c.setParameters(params);
 		
 		sizeSet = true;
+		*/
 	}
 }
 
@@ -159,11 +161,12 @@ Camera.ShutterCallback mShutterCallback = new Camera.ShutterCallback() {
 public void onShutter() {
 Log.e(getClass().getSimpleName(), "SHUTTER CALLBACK");
 
+/*
 Camera.Parameters params = camera.getParameters();
 params.setPictureFormat(PixelFormat.JPEG);
 params.setPictureSize(PHOTO_WIDTH,PHOTO_HEIGHT);
 camera.setParameters(params);
-
+*/
 
 }
 };
@@ -214,9 +217,11 @@ if (camera != null)
 	camera.release();
 }
 
+holder.setFormat(PixelFormat.JPEG);
+holder.setFixedSize(PHOTO_WIDTH, PHOTO_HEIGHT);
+
 camera = Camera.open();
 camera.setPreviewCallback(this);
-
 
 }
 
@@ -230,6 +235,8 @@ if (isPreviewRunning) {
 try
 {
 	camera.setPreviewDisplay(holder);
+	
+	
 	camera.startPreview();
 	isPreviewRunning = true;
 }

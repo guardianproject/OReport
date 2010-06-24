@@ -53,16 +53,13 @@ public class GReporterMainActivity extends Activity {
 	    
 	   private void showFirstForm ()
 	   {
-		   if (PreferenceDB.getInstance(this).getPref("lastname")==null)
-       		showPersonForm ();
-       	  else
-       	  {
-       		  loadPerson();
-       		  showLocationFinder();
-       	  }
+		   
+       		loadSettings();
+       		showLocationFinder();
+       	  
 	   }
 	    
-	   private void loadPerson ()
+	   private void loadSettings ()
 	   {
 		   PreferenceDB prefDB = PreferenceDB.getInstance(this);
 		   
@@ -112,7 +109,7 @@ public class GReporterMainActivity extends Activity {
 	       startActivity(iReportForm);
 	   }
 	   
-	   private void showPersonForm ()
+	   private void showSettingsForm ()
 	   {
 		   
 	   	
